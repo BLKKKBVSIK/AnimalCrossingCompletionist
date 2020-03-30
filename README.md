@@ -10,6 +10,8 @@ A Flutter project to complete & recolt all collectibles species of fishes, bugs 
 
 - Add all hybrid flowers species.
 
+- Search bar to filter tiles
+
 ## PREVIEW:
 
 <p float="left">
