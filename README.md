@@ -25,6 +25,5 @@ A Flutter project to complete & recolt all collectibles species of fishes, bugs 
 
 ## RELEASES:
 
-On the PlayStore: \[Link soon]
-
+On the [PlayStore](https://play.google.com/store/apps/details?id=dev.enzoconty.animal_crossing_completion)
 
