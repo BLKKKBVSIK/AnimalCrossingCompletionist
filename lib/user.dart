@@ -8,6 +8,7 @@ class User {
   static List<Task> completedBugs = new List();
   static List<Task> completedFossils = new List();
   static bool darkKnightMode;
+  static bool hemisphere = true;
 
   static SharedPreferences prefs;
 

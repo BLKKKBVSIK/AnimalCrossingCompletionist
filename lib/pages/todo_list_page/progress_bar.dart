@@ -49,7 +49,7 @@ class _ProgressBarState extends State<ProgressBar>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>
                 [
-                  new Text(User.completedTasks.length.toString(), style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w700)),
+                  new Text((User.completedFish.length + User.completedBugs.length + User.completedFossils.length).toString(), style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w700)),
                   new Text('/', style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black),),
                   new Text(calculateListsLenght(), style: new TextStyle(fontWeight: FontWeight.w500, color: User.darkKnightMode ? textDarkTheme : Colors.black)),
                                   ],

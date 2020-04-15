@@ -75,7 +75,7 @@ class _MenuPageState extends State<MenuPage> {
                                           fontSize: 40.0,
                                           fontWeight: FontWeight.w500)),
                                   new Text(
-                                      User.completedTasks.length.toString() +
+                                      (User.completedFish.length + User.completedBugs.length + User.completedFossils.length).toString() +
                                           ' completed tasks out of ' +
                                           (TasksList.tasks.length +
                                                   TasksList.taskde.length +
@@ -161,6 +161,32 @@ class _MenuPageState extends State<MenuPage> {
                         fontWeight: FontWeight.w500,
                         fontSize: 20.0)),
                 leading: new Icon(Icons.lightbulb_outline,
+                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+              ),
+            ),
+            new FlatButton(
+              onPressed: () async {
+                var hem;
+                if (User.prefs.getBool('hemisphere') == null) {
+                  hem = true;
+                } else {
+                  hem = User.prefs.getBool('hemisphere');
+                }
+                User.prefs.setBool('hemisphere', !hem);
+                await User.prefs.commit();
+
+                setState(() => User.hemisphere = !User.hemisphere);
+                Navigator.of(context).popAndPushNamed('/');
+              },
+              child: new ListTile(
+                subtitle: User.hemisphere ? Text("Currently on North hemisphere") : Text("Currently on South hemisphere"),
+                title: new Text("Change hemisphere",
+                    style: new TextStyle(
+                        color:
+                            User.darkKnightMode ? textDarkTheme : Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.0)),
+                leading: new Icon(Icons.place,
                     color: User.darkKnightMode ? textDarkTheme : Colors.black),
               ),
             ),
