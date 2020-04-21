@@ -582,6 +582,7 @@ class _OnboardPageState extends State<OnboardPage> {
     if (userName.trim().length > 10 || userName.trim().length < 4) {
       return;
     }
+    FocusScope.of(context).unfocus();
 
     User.prefs.setString('userName', userName.trim());
     await User.prefs.commit();
