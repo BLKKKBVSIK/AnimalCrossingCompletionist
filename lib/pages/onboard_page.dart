@@ -147,7 +147,7 @@ class _OnboardPageState extends State<OnboardPage> {
             /// Image and name card
             new Padding(padding: new EdgeInsets.only(bottom: 32.0)),
             new SizedBox(
-              height: MediaQuery.of(context).size.height * 0.20,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             new Column(
               mainAxisSize: MainAxisSize.min,
