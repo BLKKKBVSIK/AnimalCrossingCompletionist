@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/todo_list_page/todo_list_page.dart';
 import 'pages/onboard_page.dart';
 import 'user.dart';
-
+import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -31,7 +31,14 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: User.name != null ? new TodoListPage() : new OnboardPage(),
+      home: SplashScreen(
+        'res/splash.flr',
+        User.name != null ? new TodoListPage() : new OnboardPage(),
+        startAnimation: 'splash',
+      ),
+      routes: {
+        TodoListPage.routeName: (BuildContext ctx) => TodoListPage(),
+      },
     );
   }
 }
