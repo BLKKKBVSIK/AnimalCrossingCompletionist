@@ -338,39 +338,41 @@ class _OnboardPageState extends State<OnboardPage> {
                 )),
           ),
           card1 || card2
-              ? Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Text(''),
-                      new Expanded(
-                        child: Align(
-                            alignment: FractionalOffset.bottomRight,
-                            child: new Container(
-                                margin: new EdgeInsets.only(
-                                    left: 16.0, right: 16.0, top: 24.0),
-                                child: new RaisedButton(
-                                  onPressed: () =>
-                                      controller.text.length >= 4 &&
-                                              controller.text.length <= 10
-                                          ? saveName(controller.text)
-                                          : null,
-                                  color: Colors.black,
-                                  child: new ListTile(
-                                    title: new Text('Next',
-                                        style: new TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600)),
-                                    trailing: new Icon(Icons.arrow_forward,
-                                        color: Colors.white),
-                                  ),
-                                ))),
-                      )
-                    ],
+              ? Expanded(
+                              child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        new Text(''),
+                        new Expanded(
+                          child: Align(
+                              alignment: FractionalOffset.bottomRight,
+                              child: new Container(
+                                  margin: new EdgeInsets.only(
+                                      left: 16.0, right: 16.0, top: 24.0),
+                                  child: new RaisedButton(
+                                    onPressed: () =>
+                                        controller.text.length >= 4 &&
+                                                controller.text.length <= 10
+                                            ? saveName(controller.text)
+                                            : null,
+                                    color: Colors.black,
+                                    child: new ListTile(
+                                      title: new Text('Next',
+                                          style: new TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600)),
+                                      trailing: new Icon(Icons.arrow_forward,
+                                          color: Colors.white),
+                                    ),
+                                  ))),
+                        )
+                      ],
+                    ),
                   ),
-                )
+              )
               : new Container()
         ],
       ),
@@ -537,23 +539,39 @@ class _OnboardPageState extends State<OnboardPage> {
                 )),
           ),
           card1 && card2
-              ? new Container(
-                  margin:
-                      new EdgeInsets.only(left: 16.0, right: 16.0, top: 24.0),
-                  child: new RaisedButton(
-                    onPressed: () => Navigator.of(context).pushReplacement(
+              ? Expanded(
+                              child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        new Text(''),
+                        new Expanded(
+                          child: Align(
+                              alignment: FractionalOffset.bottomRight,
+                              child: new Container(
+                                  margin: new EdgeInsets.only(
+                                      left: 16.0, right: 16.0, top: 24.0),
+                                  child: new RaisedButton(
+                                    onPressed: () => Navigator.of(context).pushReplacement(
                         new MaterialPageRoute(
                             builder: (_) => new TodoListPage())),
-                    color: Colors.black,
-                    child: new ListTile(
-                      title: new Text('Let\'s start',
-                          style: new TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600)),
-                      trailing:
-                          new Icon(Icons.arrow_forward, color: Colors.white),
+                                    color: Colors.black,
+                                    child: new ListTile(
+                                      title: new Text('Let\'s start',
+                                          style: new TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600)),
+                                      trailing: new Icon(Icons.arrow_forward,
+                                          color: Colors.white),
+                                    ),
+                                  ))),
+                        )
+                      ],
                     ),
-                  ))
+                  ),
+              )
               : new Container()
         ],
       ),
