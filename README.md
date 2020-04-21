@@ -1,3 +1,5 @@
+<p align="center"><a href='https://play.google.com/store/apps/details?id=dev.enzoconty.animal_crossing_completion&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' height='50%'  width='40%' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a></p>
+
 # Animal Crossing Completionist
 
 A Flutter project to complete & recolt all collectibles species of fishes, bugs & fossils from Animal Crossing: New Horizons.
