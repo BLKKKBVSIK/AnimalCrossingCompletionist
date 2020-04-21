@@ -13,6 +13,7 @@ import '../menu_page.dart';
 class TodoListPage extends StatefulWidget {
   bool showSmallProgressBar = false;
   bool resetState = false;
+  static const String routeName = '/todolist';
 
   @override
   TodoListPageState createState() => new TodoListPageState();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../../logic/task.dart';
 import '../../misc/tasks_list.dart';
 import '../../user.dart';
@@ -10,8 +9,9 @@ class BuilderTaskType extends StatefulWidget {
 
   State state;
   int position;
+  String listMonthName;
   
-  BuilderTaskType(this.state, this.position);
+  BuilderTaskType(this.state, this.position, [this.listMonthName]);
 
   @override
   _BuilderTaskTypeState createState() => _BuilderTaskTypeState();
@@ -25,11 +25,11 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
     (
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: returnRightList(widget.position)
+      children: returnRightList(widget.position, listMonthName: widget.listMonthName)
           );
         }
       
-    List<Widget> returnRightList(int position) {
+    List<Widget> returnRightList(int position, {listMonthName}) {
       switch (position) {
         case 0: {
           if (User.hemisphere) {
@@ -50,9 +50,8 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
         } break;
         case 4: {
           if (User.hemisphere) {
-          return TasksList.tasks.where((task) { 
-            var now = new DateTime.now();
-            final monthName = DateFormat.MMMM().format(now);
+          return TasksList.tasks.where((task) {
+            final monthName = listMonthName;
 
             var returnValue = false;
             if (task.jan == true && monthName == 'January') {
@@ -85,9 +84,8 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
               }
           ).map<Widget>((Task task) => new TodoCard(checkIfDone(task, User.completedFish), widget.state, 1)).toList();
           } else {
-            return TasksList.tasks_south.where((task) { 
-            var now = new DateTime.now();
-            final monthName = DateFormat.MMMM().format(now);
+            return TasksList.tasks_south.where((task) {
+            final monthName = listMonthName;
 
             var returnValue = false;
             if (task.jan == true && monthName == 'January') {
@@ -124,9 +122,8 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
         }
         case 5: {
           if (User.hemisphere) {
-          return TasksList.taskde.where((task) { 
-            var now = new DateTime.now();
-            final monthName = DateFormat.MMMM().format(now);
+          return TasksList.taskde.where((task) {
+            final monthName = listMonthName;
 
             var returnValue = false;
             if (task.jan == true && monthName == 'January') {
@@ -159,9 +156,8 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
               }
           ).map<Widget>((Task task) => new TodoCard(checkIfDone(task, User.completedBugs), widget.state, 2)).toList();
         } else {
-          return TasksList.taskde_south.where((task) { 
-            var now = new DateTime.now();
-            final monthName = DateFormat.MMMM().format(now);
+          return TasksList.taskde_south.where((task) {
+            final monthName = listMonthName;
 
             var returnValue = false;
             if (task.jan == true && monthName == 'January') {

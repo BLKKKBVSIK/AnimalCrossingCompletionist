@@ -14,39 +14,77 @@ class BugMonth extends StatefulWidget {
 }
 
 class _BugMonthState extends State<BugMonth> {
+  String dropdownValue = getMonthTitle();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: User.darkKnightMode ? veryDarkTheme : acTheme,
-      title: Text(getMonthTitle()),),
-            body: Container(
-              child: new Builder(
-                builder: (BuildContext context) {
-                  return new CustomScrollView(
-                    scrollDirection: Axis.vertical,
-                    slivers: <Widget>[
-                      new SliverList(
-                          delegate: new SliverChildListDelegate(<Widget>[
-                          DecoratedBox(
-                          decoration: BoxDecoration(color: User.darkKnightMode ? menuDarkTheme : acTheme),
-                          child: new SizedBox(height: 20,)),
-                        new BuilderTaskType(this, 5),
-                        DecoratedBox(
-                          decoration: BoxDecoration(color: User.darkKnightMode ? menuDarkTheme : acTheme),
-                          child: new SizedBox(height: 60,))
-                      ]))
-                    ],
-                  );
-                },
+      appBar: AppBar(
+        backgroundColor: User.darkKnightMode ? veryDarkTheme : acTheme,
+        title: DropdownButton<String>(
+          value: dropdownValue,
+          items: <String>[
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+          ].map((String value) {
+            return new DropdownMenuItem<String>(
+              value: value,
+              child: new Text(
+                value,
               ),
-            ),);
-      
-        }
-      
-        String getMonthTitle() {
-            var now = new DateTime.now();
-            final monthName = DateFormat.MMMM().format(now);
+            );
+          }).toList(),
+          onChanged: (String newValue) {
+            setState(() {
+              dropdownValue = newValue;
+            });
+          },
+        ),
+      ),
+      body: Container(
+        child: new Builder(
+          builder: (BuildContext context) {
+            return new CustomScrollView(
+              scrollDirection: Axis.vertical,
+              slivers: <Widget>[
+                new SliverList(
+                    delegate: new SliverChildListDelegate(<Widget>[
+                  DecoratedBox(
+                      decoration: BoxDecoration(
+                          color: User.darkKnightMode ? menuDarkTheme : acTheme),
+                      child: new SizedBox(
+                        height: 20,
+                      )),
+                  new BuilderTaskType(this, 5, dropdownValue),
+                  DecoratedBox(
+                      decoration: BoxDecoration(
+                          color: User.darkKnightMode ? menuDarkTheme : acTheme),
+                      child: new SizedBox(
+                        height: 60,
+                      ))
+                ]))
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
 
-            return monthName;
-        }
+  static String getMonthTitle() {
+    var now = new DateTime.now();
+    final monthName = DateFormat.MMMM().format(now);
+
+    return monthName;
+  }
 }

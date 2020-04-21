@@ -104,7 +104,6 @@ class IOManager
           }
         }
       }
-      print(completedTasks);
       User.completedBugs = completedTasks;
 
 
@@ -123,8 +122,6 @@ class IOManager
         }
       }
       User.completedFossils = completedTasks;
-
-
     }
     catch (e)
     {

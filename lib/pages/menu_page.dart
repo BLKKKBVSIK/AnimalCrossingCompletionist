@@ -3,6 +3,7 @@ import 'package:animal_crossing_completion/misc/custom_icons.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_bug.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_fish.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/tasks_section.dart';
+import 'package:animal_crossing_completion/pages/todo_list_page/todo_list_page.dart';
 import 'package:flutter/material.dart';
 import '../user.dart';
 import 'onboard_page.dart';
@@ -75,7 +76,10 @@ class _MenuPageState extends State<MenuPage> {
                                           fontSize: 40.0,
                                           fontWeight: FontWeight.w500)),
                                   new Text(
-                                      (User.completedFish.length + User.completedBugs.length + User.completedFossils.length).toString() +
+                                      (User.completedFish.length +
+                                                  User.completedBugs.length +
+                                                  User.completedFossils.length)
+                                              .toString() +
                                           ' completed tasks out of ' +
                                           (TasksList.tasks.length +
                                                   TasksList.taskde.length +
@@ -176,10 +180,20 @@ class _MenuPageState extends State<MenuPage> {
                 await User.prefs.commit();
 
                 setState(() => User.hemisphere = !User.hemisphere);
-                Navigator.of(context).popAndPushNamed('/');
+                Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
               },
               child: new ListTile(
-                subtitle: User.hemisphere ? Text("Currently on North hemisphere") : Text("Currently on South hemisphere"),
+                subtitle: User.hemisphere
+                    ? Text("Currently on North hemisphere",
+                        style: new TextStyle(
+                            color: User.darkKnightMode
+                                ? textDarkTheme
+                                : Colors.black))
+                    : Text("Currently on South hemisphere",
+                        style: new TextStyle(
+                            color: User.darkKnightMode
+                                ? textDarkTheme
+                                : Colors.black)),
                 title: new Text("Change hemisphere",
                     style: new TextStyle(
                         color:
@@ -190,6 +204,9 @@ class _MenuPageState extends State<MenuPage> {
                     color: User.darkKnightMode ? textDarkTheme : Colors.black),
               ),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 100),
+              child: Divider(thickness: 3, color: User.darkKnightMode ? textDarkTheme : Colors.black,)),
             new FlatButton(
               onPressed: () {
                 showAboutDialog(
