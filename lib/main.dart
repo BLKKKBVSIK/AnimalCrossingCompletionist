@@ -1,4 +1,7 @@
 import 'package:animal_crossing_completion/pages/more/balloon/balloon_screen.dart';
+import 'package:animal_crossing_completion/pages/more/flowers/flowers_guide_screen.dart';
+import 'package:animal_crossing_completion/pages/more/guide_screen.dart';
+import 'package:animal_crossing_completion/pages/more/tools/tools_guide_screen.dart';
 import 'package:flutter/material.dart';
 import 'pages/todo_list_page/todo_list_page.dart';
 import 'pages/onboard_page.dart';
@@ -39,7 +42,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         TodoListPage.routeName: (BuildContext ctx) => TodoListPage(),
+        MoreGuides.routeName: (BuildContext ctx) => MoreGuides(),
         BalloonScreen.routeName: (BuildContext ctx) => BalloonScreen(),
+        ToolsGuide.routeName: (BuildContext ctx) => ToolsGuide(),
+        FlowerGuide.routeName: (BuildContext ctx) => FlowerGuide(),
       },
     );
   }
