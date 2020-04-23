@@ -7,3 +7,4 @@ Color veryDarkTheme = Color.fromRGBO(0, 0, 0, 1);
 Color textDarkTheme = Color.fromRGBO(227, 227, 227, 1);
 
 Color acTheme = Color.fromRGBO(136, 203, 160, 1);
+Color menuAcTheme = Color.fromRGBO(78, 196, 119, 1);

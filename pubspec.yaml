@@ -67,6 +67,9 @@ flutter:
    - res/bugs/
    - res/icons/
    - res/fossils/
+   - res/balloons/
+   - res/tools/
+   - res/flowers/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -83,6 +86,9 @@ flutter:
     - family: Custom
       fonts:
         - asset: res/icons/Custom.ttf
+    - family: Fink
+      fonts:
+        - asset: res/FinkHeavy.ttf
   #fonts:
   #   - family: Schyler
   #     fonts:

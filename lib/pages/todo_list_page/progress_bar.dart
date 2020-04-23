@@ -72,7 +72,7 @@ class _ProgressBarState extends State<ProgressBar>
                                 ),
                                 new SizedBox.fromSize
                                 (
-                                  size: new Size(((User.completedFish.length + User.completedBugs.length + User.completedFossils.length) / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length)) * MediaQuery.of(context).size.width - 
+                                  size: new Size(((User.completedFish.length + User.completedBugs.length + User.completedFossils.length + 1) / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length)) * MediaQuery.of(context).size.width - 
                                   (((User.completedTasks.length / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length)) * MediaQuery.of(context).size.width) * 0.7), 10.0),
                                   child: new Material
                                   (

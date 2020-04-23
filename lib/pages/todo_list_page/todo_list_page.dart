@@ -153,10 +153,11 @@ class TodoListPageState extends State<TodoListPage> {
                             margin: new EdgeInsets.only(left: 16.0),
                             child: new Text('AC Completionist',
                                 style: new TextStyle(
+                                  fontFamily: "Fink",
                                     color: User.darkKnightMode
                                         ? textDarkTheme
                                         : Colors.black,
-                                    fontSize: 32.0,
+                                    fontSize: 38.0,
                                     fontWeight: FontWeight.w600))),
                       ),
                       new Align(

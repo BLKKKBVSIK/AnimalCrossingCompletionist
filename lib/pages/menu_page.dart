@@ -1,15 +1,14 @@
 import 'package:animal_crossing_completion/misc/colors.dart';
 import 'package:animal_crossing_completion/misc/custom_icons.dart';
+import 'package:animal_crossing_completion/pages/more/guide_screen.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_bug.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_fish.dart';
-import 'package:animal_crossing_completion/pages/todo_list_page/tasks_section.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/todo_list_page.dart';
 import 'package:flutter/material.dart';
 import '../user.dart';
 import 'onboard_page.dart';
 import '../misc/io_manager.dart';
 import '../misc/tasks_list.dart';
-import 'package:share/share.dart';
 
 class MenuPage extends StatefulWidget {
   State todoListPageState;
@@ -155,7 +154,7 @@ class _MenuPageState extends State<MenuPage> {
                 await User.prefs.commit();
 
                 setState(() => User.darkKnightMode = !User.darkKnightMode);
-                Navigator.of(context).popAndPushNamed('/');
+                Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
               },
               child: new ListTile(
                 title: new Text("Dark Night Mode",
@@ -201,6 +200,21 @@ class _MenuPageState extends State<MenuPage> {
                         fontWeight: FontWeight.w500,
                         fontSize: 20.0)),
                 leading: new Icon(Icons.place,
+                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+              ),
+            ),
+            new FlatButton(
+              onPressed: () async {
+                Navigator.of(context).popAndPushNamed(MoreGuides.routeName);
+              },
+              child: new ListTile(
+                title: new Text("More Guides",
+                    style: new TextStyle(
+                        color:
+                            User.darkKnightMode ? textDarkTheme : Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.0)),
+                leading: new Icon(Icons.library_books,
                     color: User.darkKnightMode ? textDarkTheme : Colors.black),
               ),
             ),

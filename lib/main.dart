@@ -1,3 +1,4 @@
+import 'package:animal_crossing_completion/pages/more/balloon/balloon_screen.dart';
 import 'package:flutter/material.dart';
 import 'pages/todo_list_page/todo_list_page.dart';
 import 'pages/onboard_page.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         TodoListPage.routeName: (BuildContext ctx) => TodoListPage(),
+        BalloonScreen.routeName: (BuildContext ctx) => BalloonScreen(),
       },
     );
   }
