@@ -77,24 +77,24 @@ class TodoListPageState extends State<TodoListPage> {
     *       Bug section
     *
     *************************** */
-      
+
       /* ******************
     *       Fossils
     *
     ********************** */
-      
     ];
     return new Scaffold(
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: true,
       extendBody: true,
-      backgroundColor:
-          User.darkKnightMode ? menuDarkTheme : acTheme,
+      backgroundColor: User.darkKnightMode ? menuDarkTheme : acTheme,
       bottomNavigationBar: SnakeNavigationBar(
         style: snakeBarStyle,
         snakeShape: snakeShape,
         snakeColor: acTheme, //comment if you want to see colors
-        backgroundColor: User.darkKnightMode ? veryDarkTheme : Colors.brown, //comment if you want to see colors
+        backgroundColor: User.darkKnightMode
+            ? veryDarkTheme
+            : Colors.brown, //comment if you want to see colors
 //        snakeGradient:
 //            selectionGradient, //uncomment if you want to see gradients
 //        backgroundGradient:
@@ -118,8 +118,11 @@ class TodoListPageState extends State<TodoListPage> {
           )
         ],
       ),
-      body:Stack(children: <Widget>[navBar[_selectedItemPosition],],),
-      
+      body: Stack(
+        children: <Widget>[
+          navBar[_selectedItemPosition],
+        ],
+      ),
       drawer: new Drawer(
           child: Container(
         child: new MenuPage(this),
@@ -128,101 +131,84 @@ class TodoListPageState extends State<TodoListPage> {
     );
   }
 
-  Widget _buildTabs(Color smallProgressBarColor, List<Task> tasksList, String type) {
+  Widget _buildTabs(
+      Color smallProgressBarColor, List<Task> tasksList, String type) {
     return Container(
-        child: new Builder(
-          builder: (BuildContext context) {
-            return new CustomScrollView(
-              controller: controller,
-              scrollDirection: Axis.vertical,
-              slivers: <Widget>[
-                new SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  elevation: 5.0,
-                  floating: false,
-                  pinned: true,
-                  centerTitle: false,
-                  backgroundColor:
-                      User.darkKnightMode ? veryDarkTheme : Color.fromRGBO(78, 196, 119, 1),
-                  titleSpacing: 0.0,
-                  title: new Stack(
-                    children: <Widget>[
-                      new Align(
-                        alignment: FractionalOffset.centerLeft,
-                        child: new Container(
-                            margin: new EdgeInsets.only(left: 16.0),
-                            child: new Text('AC Completionist',
-                                style: new TextStyle(
-                                  fontFamily: "Fink",
-                                    color: User.darkKnightMode
-                                        ? textDarkTheme
-                                        : Colors.black,
-                                    fontSize: 38.0,
-                                    fontWeight: FontWeight.w600))),
-                      ),
-                      new Align(
-                        alignment: FractionalOffset.centerRight,
-                        child: new Container(
-                            margin: new EdgeInsets.only(right: 5.0),
-                            child: RaisedButton(
-                              onPressed: () =>
-                                  Scaffold.of(context).openDrawer(),
-                              child: Icon(
-                                Icons.menu,
-                                color: User.darkKnightMode
-                                    ? textDarkTheme
-                                    : Colors.black,
-                              ),
-                              color: User.darkKnightMode
-                                  ? veryDarkTheme
-                                  : Color.fromRGBO(78, 196, 119, 1),
-                              elevation: 0,
-                            )),
-                      ),
-                      widget.showSmallProgressBar
-                          ? new Align(
-                              alignment: FractionalOffset.bottomLeft,
-                              child: new SizedBox.fromSize(
-                                size: new Size(
-                                    (User.completedFish.length /
-                                            tasksList.length) *
-                                        MediaQuery.of(context).size.width,
-                                    4.0),
-                                child: new Container(color: smallProgressBarColor),
-                              ))
-                          : new Container(),
-                    ],
-                  ),
-                  expandedHeight: 110.0,
-                  flexibleSpace: new FlexibleSpaceBar(
-                    background: new Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[new ProgressBar(widget)],
+      child: new Builder(
+        builder: (BuildContext context) {
+          return new CustomScrollView(
+            controller: controller,
+            scrollDirection: Axis.vertical,
+            slivers: <Widget>[
+              new SliverAppBar(
+                automaticallyImplyLeading: false,
+                elevation: 5.0,
+                floating: false,
+                pinned: true,
+                centerTitle: false,
+                backgroundColor: User.darkKnightMode
+                    ? veryDarkTheme
+                    : Color.fromRGBO(78, 196, 119, 1),
+                titleSpacing: 0.0,
+                actions: <Widget>[
+                  RaisedButton(
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                    child: Icon(
+                      Icons.menu,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black,
                     ),
-                  ),
-                ),
-                new SliverList(
-                    delegate: new SliverChildListDelegate(<Widget>[
-                  new Container(
-                      margin: new EdgeInsets.only(
-                          right: 18.0, bottom: 8.0, top: 16.0),
-                      child: new Text('${type} list',
-                          textAlign: TextAlign.end,
-                          style: new TextStyle(
-                            fontWeight: FontWeight.w500,
+                    color: User.darkKnightMode
+                        ? veryDarkTheme
+                        : Colors.transparent,
+                    elevation: 0,
+                  )
+                ],
+                title: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Flexible(
+                    child: new Text('ACCompletionist',
+                        style: new TextStyle(
+                            fontFamily: "Fink",
                             color: User.darkKnightMode
                                 ? textDarkTheme
                                 : Colors.black,
-                          ))),
-                  new BuilderTaskType(this, _selectedItemPosition),
-                  DecoratedBox(
-                    decoration: BoxDecoration(color: User.darkKnightMode ? menuDarkTheme : acTheme),
-                    child: new SizedBox(height: 60,))
-                ]))
-              ],
-            );
-          },
-        ),
-      );
+                            fontSize: 36.0,
+                            fontWeight: FontWeight.w400)),
+                  ),
+                ),
+                expandedHeight: 110.0,
+                flexibleSpace: new FlexibleSpaceBar(
+                  background: new Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[new ProgressBar(widget)],
+                  ),
+                ),
+              ),
+              new SliverList(
+                  delegate: new SliverChildListDelegate(<Widget>[
+                new Container(
+                    margin: new EdgeInsets.only(
+                        right: 18.0, bottom: 8.0, top: 16.0),
+                    child: new Text('${type} list',
+                        textAlign: TextAlign.end,
+                        style: new TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: User.darkKnightMode
+                              ? textDarkTheme
+                              : Colors.black,
+                        ))),
+                new BuilderTaskType(this, _selectedItemPosition),
+                DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: User.darkKnightMode ? menuDarkTheme : acTheme),
+                    child: new SizedBox(
+                      height: 60,
+                    ))
+              ]))
+            ],
+          );
+        },
+      ),
+    );
   }
 }

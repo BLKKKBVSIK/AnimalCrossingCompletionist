@@ -13,7 +13,10 @@ class MoreGuides extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: User.darkKnightMode ? veryDarkTheme : menuAcTheme,
-        title: Text("More guides", style: TextStyle(fontFamily: 'Fink',)),
+        title: Text("More guides",
+            style: TextStyle(
+              fontFamily: 'Fink',
+            )),
       ),
       body: Container(
           color: User.darkKnightMode ? menuDarkTheme : acTheme,
@@ -39,13 +42,15 @@ class MoreGuides extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Balloon guide",
-                        style: TextStyle(
-                            fontFamily: 'Fink',
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black),
+                      Flexible(
+                        child: Text(
+                          "Balloon guide",
+                          style: TextStyle(
+                              fontFamily: 'Fink',
+                              color: User.darkKnightMode
+                                  ? textDarkTheme
+                                  : Colors.black),
+                        ),
                       ),
                     ],
                   ),
@@ -76,13 +81,15 @@ class MoreGuides extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Tool durability",
-                        style: TextStyle(
-                            fontFamily: 'Fink',
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black),
+                      Flexible(
+                        child: Text(
+                          "Tool durability",
+                          style: TextStyle(
+                              fontFamily: 'Fink',
+                              color: User.darkKnightMode
+                                  ? textDarkTheme
+                                  : Colors.black),
+                        ),
                       ),
                     ],
                   ),
@@ -113,13 +120,15 @@ class MoreGuides extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Flowers guide",
-                        style: TextStyle(
-                            fontFamily: 'Fink',
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black),
+                      Flexible(
+                        child: Text(
+                          "Flowers guide",
+                          style: TextStyle(
+                              fontFamily: 'Fink',
+                              color: User.darkKnightMode
+                                  ? textDarkTheme
+                                  : Colors.black),
+                        ),
                       ),
                     ],
                   ),

@@ -9,7 +9,12 @@ class BalloonScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Balloon Guide", style: TextStyle(fontFamily: 'Fink',),),
+          title: Text(
+            "Balloon Guide",
+            style: TextStyle(
+              fontFamily: 'Fink',
+            ),
+          ),
           backgroundColor: User.darkKnightMode ? veryDarkTheme : menuAcTheme),
       body: Container(
         color: User.darkKnightMode ? menuDarkTheme : acTheme,
@@ -25,6 +30,7 @@ class BalloonScreen extends StatelessWidget {
                               "Balloons seem to float randomly over the town, but they actually originate on the edges of the map at specific times.\n\nEvery time the player is outside and the time's final digit is a '4', a balloon has a chance to appear; for example, a balloon could appear at 3:14, 5:54, 12:34 or 1:04, but they will not appear at times like 4:33, 7:28.",
                           style: TextStyle(
                               fontSize: 18,
+                              fontFamily: "Fink",
                               color: User.darkKnightMode
                                   ? textDarkTheme
                                   : Colors.black)),
@@ -46,7 +52,14 @@ class BalloonScreen extends StatelessWidget {
                           height: 100,
                         ),
                       ),
-                      Center(child: Text("When a red balloon pop,\n you'll get a recipe.", style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black, ))),
+                      Center(
+                          child: Text(
+                              "When a red balloon pop,\n you'll get a recipe.",
+                              style: TextStyle(
+                                  color: User.darkKnightMode
+                                      ? textDarkTheme
+                                      : Colors.black,
+                                  fontFamily: "Fink"))),
                     ]),
                     TableRow(children: <Widget>[
                       Padding(
@@ -56,7 +69,14 @@ class BalloonScreen extends StatelessWidget {
                           height: 100,
                         ),
                       ),
-                      Center(child: Text("When a blue balloon pop,\n you'll get crafting materials.", style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black, ))),
+                      Center(
+                          child: Text(
+                              "When a blue balloon pop,\n you'll get crafting materials.",
+                              style: TextStyle(
+                                  color: User.darkKnightMode
+                                      ? textDarkTheme
+                                      : Colors.black,
+                                  fontFamily: "Fink"))),
                     ]),
                     TableRow(children: <Widget>[
                       Padding(
@@ -66,7 +86,14 @@ class BalloonScreen extends StatelessWidget {
                           height: 100,
                         ),
                       ),
-                      Center(child: Text("When a green balloon pop,\n you'll get a piece of furniture.", style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black, ))),
+                      Center(
+                          child: Text(
+                              "When a green balloon pop,\n you'll get a piece of furniture.",
+                              style: TextStyle(
+                                  color: User.darkKnightMode
+                                      ? textDarkTheme
+                                      : Colors.black,
+                                  fontFamily: "Fink"))),
                     ]),
                     TableRow(children: <Widget>[
                       Padding(
@@ -76,7 +103,14 @@ class BalloonScreen extends StatelessWidget {
                           height: 100,
                         ),
                       ),
-                      Center(child: Text("When a yellow balloon pop,\n you'll get bells.", style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black, ))),
+                      Center(
+                          child: Text(
+                              "When a yellow balloon pop,\n you'll get bells.",
+                              style: TextStyle(
+                                  color: User.darkKnightMode
+                                      ? textDarkTheme
+                                      : Colors.black,
+                                  fontFamily: "Fink"))),
                     ]),
                   ],
                 ),

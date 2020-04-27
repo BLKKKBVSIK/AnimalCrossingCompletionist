@@ -21,290 +21,292 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
-    return new Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        // Upper part
-        new Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            /// Profile infos
-            new SizedBox.fromSize(
-              size: new Size.fromHeight(190.0),
-              child: new Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  /// Upper gradient
-                  new SizedBox.expand(
-                    child: new Container(
-                      decoration: new BoxDecoration(
-                          gradient: new LinearGradient(colors: [
-                        new Color(0xFF0acffe),
-                        new Color(0xFF495aff)
-                      ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-                    ),
-                  ),
-
-                  /// Black transparent overlay
-                  new SizedBox.expand(
-                    child: new Container(
-                      color: Colors.black38,
-                    ),
-                  ),
-
-                  /// Name, tasks num and share button
-                  new Align(
-                      alignment: Alignment.bottomLeft,
+    return SingleChildScrollView(
+          child: new Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          // Upper part
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              /// Profile infos
+              new SizedBox.fromSize(
+                size: new Size.fromHeight(190.0),
+                child: new Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    /// Upper gradient
+                    new SizedBox.expand(
                       child: new Container(
-                          margin: new EdgeInsets.all(24.0),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              new Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  new Text(User.name,
-                                      style: new TextStyle(
-                                          color: User.darkKnightMode
-                                              ? textDarkTheme
-                                              : Colors.white,
-                                          fontSize: 40.0,
-                                          fontWeight: FontWeight.w500)),
-                                  new Text(
-                                      (User.completedFish.length +
-                                                  User.completedBugs.length +
-                                                  User.completedFossils.length)
-                                              .toString() +
-                                          ' completed tasks out of ' +
-                                          (TasksList.tasks.length +
-                                                  TasksList.taskde.length +
-                                                  TasksList.tasktr.length)
-                                              .toString(),
-                                      style: new TextStyle(
-                                          color: User.darkKnightMode
-                                              ? textDarkTheme
-                                              : Colors.white)),
-                                  new Text(
-                                      User.completedFish.length.toString() +
-                                          ' completed fishes out of ' +
-                                          TasksList.tasks.length.toString(),
-                                      style: new TextStyle(color: Colors.blue)),
-                                  new Text(
-                                      User.completedBugs.length.toString() +
-                                          ' completed bugs out of ' +
-                                          TasksList.taskde.length.toString(),
-                                      style:
-                                          new TextStyle(color: Colors.green)),
-                                  new Text(
-                                      User.completedFossils.length.toString() +
-                                          ' completed fossils out of ' +
-                                          TasksList.tasktr.length.toString(),
-                                      style:
-                                          new TextStyle(color: Colors.yellow)),
-                                ],
-                              ),
-                            ],
-                          )))
-                ],
-              ),
-            ),
+                        decoration: new BoxDecoration(
+                            gradient: new LinearGradient(colors: [
+                          new Color(0xFF0acffe),
+                          new Color(0xFF495aff)
+                        ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+                      ),
+                    ),
 
-            /// Menu buttons
-            new Padding(padding: new EdgeInsets.only(top: 16.0)),
-            new FlatButton(
-              onPressed: () {
-                Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (_) => new FishMonth(widget.todoListPageState)));
-              },
-              child: new ListTile(
-                title: new Text("Fishes of the month",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Custom.fish,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
-              ),
-            ),
-            new FlatButton(
-              onPressed: () {
-                Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (_) => new BugMonth(widget.todoListPageState)));
-              },
-              child: new ListTile(
-                title: new Text("Bugs of the month",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Custom.ladybug,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
-              ),
-            ),
-            new FlatButton(
-              onPressed: () async {
-                final val = User.prefs.getBool('darkNightMode');
-                User.prefs.setBool('darkNightMode', !val);
-                await User.prefs.commit();
+                    /// Black transparent overlay
+                    new SizedBox.expand(
+                      child: new Container(
+                        color: Colors.black38,
+                      ),
+                    ),
 
-                setState(() => User.darkKnightMode = !User.darkKnightMode);
-                Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
-              },
-              child: new ListTile(
-                title: new Text("Dark Night Mode",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Icons.lightbulb_outline,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                    /// Name, tasks num and share button
+                    new Align(
+                        alignment: Alignment.bottomLeft,
+                        child: new Container(
+                            margin: new EdgeInsets.all(24.0),
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                new Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    new Text(User.name,
+                                        style: new TextStyle(
+                                            color: User.darkKnightMode
+                                                ? textDarkTheme
+                                                : Colors.white,
+                                            fontSize: 40.0,
+                                            fontWeight: FontWeight.w500)),
+                                    new Text(
+                                        (User.completedFish.length +
+                                                    User.completedBugs.length +
+                                                    User.completedFossils.length)
+                                                .toString() +
+                                            ' completed tasks out of ' +
+                                            (TasksList.tasks.length +
+                                                    TasksList.taskde.length +
+                                                    TasksList.tasktr.length)
+                                                .toString(),
+                                        style: new TextStyle(
+                                            color: User.darkKnightMode
+                                                ? textDarkTheme
+                                                : Colors.white)),
+                                    new Text(
+                                        User.completedFish.length.toString() +
+                                            ' completed fishes out of ' +
+                                            TasksList.tasks.length.toString(),
+                                        style: new TextStyle(color: Colors.blue)),
+                                    new Text(
+                                        User.completedBugs.length.toString() +
+                                            ' completed bugs out of ' +
+                                            TasksList.taskde.length.toString(),
+                                        style:
+                                            new TextStyle(color: Colors.green)),
+                                    new Text(
+                                        User.completedFossils.length.toString() +
+                                            ' completed fossils out of ' +
+                                            TasksList.tasktr.length.toString(),
+                                        style:
+                                            new TextStyle(color: Colors.yellow)),
+                                  ],
+                                ),
+                              ],
+                            )))
+                  ],
+                ),
               ),
-            ),
-            new FlatButton(
-              onPressed: () async {
-                var hem;
-                if (User.prefs.getBool('hemisphere') == null) {
-                  hem = true;
-                } else {
-                  hem = User.prefs.getBool('hemisphere');
-                }
-                User.prefs.setBool('hemisphere', !hem);
-                await User.prefs.commit();
 
-                setState(() => User.hemisphere = !User.hemisphere);
-                Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
-              },
-              child: new ListTile(
-                subtitle: User.hemisphere
-                    ? Text("Currently on North hemisphere",
-                        style: new TextStyle(
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black))
-                    : Text("Currently on South hemisphere",
-                        style: new TextStyle(
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black)),
-                title: new Text("Change hemisphere",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Icons.place,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+              /// Menu buttons
+              new Padding(padding: new EdgeInsets.only(top: 16.0)),
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (_) => new FishMonth(widget.todoListPageState)));
+                },
+                child: new ListTile(
+                  title: new Text("Fishes of the month",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Custom.fish,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
               ),
-            ),
-            new FlatButton(
-              onPressed: () async {
-                Navigator.of(context).popAndPushNamed(MoreGuides.routeName);
-              },
-              child: new ListTile(
-                title: new Text("More Guides",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Icons.library_books,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+              new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (_) => new BugMonth(widget.todoListPageState)));
+                },
+                child: new ListTile(
+                  title: new Text("Bugs of the month",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Custom.ladybug,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 100),
-              child: Divider(thickness: 3, color: User.darkKnightMode ? textDarkTheme : Colors.black,)),
-            new FlatButton(
-              onPressed: () {
-                showAboutDialog(
-                    context: context,
-                    applicationLegalese:
-                        'Made by Enzo CONTY\n\nGithub:\nhttps://github.com/BLKKKBVSIK\n\nWebsite:\nhttps://enzoconty.dev/',
-                    applicationVersion: 'Alpha: v0.0.1',
-                    applicationIcon:
-                        new Image.asset('res/icon.png', width: 20.0));
-              },
-              child: new ListTile(
-                title: new Text("About",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Icons.info,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
+              new FlatButton(
+                onPressed: () async {
+                  final val = User.prefs.getBool('darkNightMode');
+                  User.prefs.setBool('darkNightMode', !val);
+                  await User.prefs.commit();
+
+                  setState(() => User.darkKnightMode = !User.darkKnightMode);
+                  Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
+                },
+                child: new ListTile(
+                  title: new Text("Dark Night Mode",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Icons.lightbulb_outline,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
               ),
-            ),
-            new FlatButton(
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    child: new AlertDialog(
-                      titlePadding: new EdgeInsets.all(0.0),
-                      title: new Container(
-                        padding: new EdgeInsets.symmetric(vertical: 32.0),
-                        child: new Center(
-                          child: Text(
-                            "Wanna contribute ?",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+              new FlatButton(
+                onPressed: () async {
+                  var hem;
+                  if (User.prefs.getBool('hemisphere') == null) {
+                    hem = true;
+                  } else {
+                    hem = User.prefs.getBool('hemisphere');
+                  }
+                  User.prefs.setBool('hemisphere', !hem);
+                  await User.prefs.commit();
+
+                  setState(() => User.hemisphere = !User.hemisphere);
+                  Navigator.of(context).popAndPushNamed(TodoListPage.routeName);
+                },
+                child: new ListTile(
+                  subtitle: User.hemisphere
+                      ? Text("Currently on North hemisphere",
+                          style: new TextStyle(
+                              color: User.darkKnightMode
+                                  ? textDarkTheme
+                                  : Colors.black))
+                      : Text("Currently on South hemisphere",
+                          style: new TextStyle(
+                              color: User.darkKnightMode
+                                  ? textDarkTheme
+                                  : Colors.black)),
+                  title: new Text("Change hemisphere",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Icons.place,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
+              ),
+              new FlatButton(
+                onPressed: () async {
+                  Navigator.of(context).popAndPushNamed(MoreGuides.routeName);
+                },
+                child: new ListTile(
+                  title: new Text("More Guides",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Icons.library_books,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 100),
+                child: Divider(thickness: 3, color: User.darkKnightMode ? textDarkTheme : Colors.black,)),
+              new FlatButton(
+                onPressed: () {
+                  showAboutDialog(
+                      context: context,
+                      applicationLegalese:
+                          'Made by Enzo CONTY\n\nGithub:\nhttps://github.com/BLKKKBVSIK\n\nWebsite:\nhttps://enzoconty.dev/',
+                      applicationVersion: 'Alpha: v0.0.1',
+                      applicationIcon:
+                          new Image.asset('res/icon.png', width: 20.0));
+                },
+                child: new ListTile(
+                  title: new Text("About",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Icons.info,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
+              ),
+              new FlatButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      child: new AlertDialog(
+                        titlePadding: new EdgeInsets.all(0.0),
+                        title: new Container(
+                          padding: new EdgeInsets.symmetric(vertical: 32.0),
+                          child: new Center(
+                            child: Text(
+                              "Wanna contribute ?",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
-                      ),
-                      content: new RichText(
-                        text: TextSpan(
-                            style: TextStyle(color: Colors.black, fontSize: 18),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: 'Help me find the rest of the data !\n',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: 'Then send me an email:\n'),
-                              TextSpan(text: 'contact@enzoconty.dev\n\n\n\n\n'),
-                              TextSpan(text: 'Thank you so much ! \u{1F496}'),
-                            ]),
-                      ),
-                      actions: <Widget>[
-                        new FlatButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: new Text('CLOSE'),
-                        )
-                      ],
-                    ));
-              },
-              child: new ListTile(
-                title: new Text("Contribute",
-                    style: new TextStyle(
-                        color:
-                            User.darkKnightMode ? textDarkTheme : Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0)),
-                leading: new Icon(Icons.assessment,
-                    color: User.darkKnightMode ? textDarkTheme : Colors.black),
-              ),
-            )
-          ],
-        ),
-        // Logout button
-        new Container(
-            margin: new EdgeInsets.only(bottom: 32.0, left: 32.0, right: 32.0),
-            child: new RaisedButton(
-                color: Colors.red,
-                onPressed: () => showExitDialog(context),
+                        content: new RichText(
+                          text: TextSpan(
+                              style: TextStyle(color: Colors.black, fontSize: 18),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Help me find the rest of the data !\n',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: 'Then send me an email:\n'),
+                                TextSpan(text: 'contact@enzoconty.dev\n\n\n\n\n'),
+                                TextSpan(text: 'Thank you so much ! \u{1F496}'),
+                              ]),
+                        ),
+                        actions: <Widget>[
+                          new FlatButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: new Text('CLOSE'),
+                          )
+                        ],
+                      ));
+                },
                 child: new ListTile(
-                  title: new Text("RESET THE APP",
-                      style: new TextStyle(color: Colors.white)),
-                  trailing: new Icon(Icons.exit_to_app, color: Colors.white),
-                )))
-      ],
+                  title: new Text("Contribute",
+                      style: new TextStyle(
+                          color:
+                              User.darkKnightMode ? textDarkTheme : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0)),
+                  leading: new Icon(Icons.assessment,
+                      color: User.darkKnightMode ? textDarkTheme : Colors.black),
+                ),
+              )
+            ],
+          ),
+          // Logout button
+          new Container(
+              margin: new EdgeInsets.only(bottom: 32.0, left: 32.0, right: 32.0),
+              child: new RaisedButton(
+                  color: Colors.red,
+                  onPressed: () => showExitDialog(context),
+                  child: new ListTile(
+                    title: new Text("RESET THE APP",
+                        style: new TextStyle(color: Colors.white)),
+                    trailing: new Icon(Icons.exit_to_app, color: Colors.white),
+                  )))
+        ],
+      ),
     );
   }
 
