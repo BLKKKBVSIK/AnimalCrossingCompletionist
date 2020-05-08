@@ -31,7 +31,7 @@ class _ProgressBarState extends State<ProgressBar>
     
     return new Container
     (
-      color: User.darkKnightMode ? veryDarkTheme : Color.fromRGBO(78, 196, 119, 1),
+      color: User.darkKnightMode ? menuDarkTheme : acTheme,
       padding: new EdgeInsets.only(left: 18.0, right: 18.0, bottom: 20.0),
       child: new Column
       (

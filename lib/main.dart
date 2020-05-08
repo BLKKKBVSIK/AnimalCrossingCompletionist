@@ -1,10 +1,13 @@
+import 'package:animal_crossing_completion/pages/board_pages/first_board.dart';
+import 'package:animal_crossing_completion/pages/board_pages/hemisphere.dart';
+import 'package:animal_crossing_completion/pages/board_pages/name.dart';
+import 'package:animal_crossing_completion/pages/board_pages/tutorial.dart';
 import 'package:animal_crossing_completion/pages/more/balloon/balloon_screen.dart';
 import 'package:animal_crossing_completion/pages/more/flowers/flowers_guide_screen.dart';
 import 'package:animal_crossing_completion/pages/more/guide_screen.dart';
 import 'package:animal_crossing_completion/pages/more/tools/tools_guide_screen.dart';
 import 'package:flutter/material.dart';
 import 'pages/todo_list_page/todo_list_page.dart';
-import 'pages/onboard_page.dart';
 import 'user.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,10 +40,13 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashScreen(
         'res/splash.flr',
-        User.name != null ? new TodoListPage() : new OnboardPage(),
+        User.name != null ? new TodoListPage() : new FirstBoard(),
         startAnimation: 'splash',
       ),
       routes: {
+        BoardTutorial.routeName: (BuildContext ctx) => BoardTutorial(),
+        BoardHemisphere.routeName: (BuildContext ctx) => BoardHemisphere(),
+        NameInput.routeName: (BuildContext ctx) => NameInput(),
         TodoListPage.routeName: (BuildContext ctx) => TodoListPage(),
         MoreGuides.routeName: (BuildContext ctx) => MoreGuides(),
         BalloonScreen.routeName: (BuildContext ctx) => BalloonScreen(),

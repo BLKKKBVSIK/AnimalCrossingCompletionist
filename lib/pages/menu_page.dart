@@ -1,12 +1,12 @@
 import 'package:animal_crossing_completion/misc/colors.dart';
 import 'package:animal_crossing_completion/misc/custom_icons.dart';
+import 'package:animal_crossing_completion/pages/board_pages/first_board.dart';
 import 'package:animal_crossing_completion/pages/more/guide_screen.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_bug.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/month_fish.dart';
 import 'package:animal_crossing_completion/pages/todo_list_page/todo_list_page.dart';
 import 'package:flutter/material.dart';
 import '../user.dart';
-import 'onboard_page.dart';
 import '../misc/io_manager.dart';
 import '../misc/tasks_list.dart';
 
@@ -338,7 +338,7 @@ class _MenuPageState extends State<MenuPage> {
 
                 Navigator.of(buildContext).pop();
                 Navigator.of(buildContext).pushReplacement(
-                    new MaterialPageRoute(builder: (_) => new OnboardPage()));
+                    new MaterialPageRoute(builder: (_) => new FirstBoard()));
               },
               child: new Text('CONTINUE'),
             )

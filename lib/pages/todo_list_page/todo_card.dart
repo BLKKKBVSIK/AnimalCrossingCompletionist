@@ -80,7 +80,7 @@ class _TodoCardState extends State<TodoCard> {
                                         ? new InkWell(
                                             onTap: () => Share.share('I just caught a ' +
                                                 widget.task.description +
-                                                ' on Animal Crossing: New Horizons !'),
+                                                ' on Animal Crossing: New Horizons ! #ACCompletionist'),
                                             child: new Container(
                                               margin: new EdgeInsets.only(
                                                   right: 12.0),
