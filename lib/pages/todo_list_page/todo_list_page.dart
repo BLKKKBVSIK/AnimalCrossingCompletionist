@@ -118,6 +118,15 @@ class TodoListPageState extends State<TodoListPage> {
           )
         ],
       ),
+      appBar: AppBar(
+        backgroundColor: User.darkKnightMode ? veryDarkTheme : menuAcTheme,
+        title: Text('ACCompletionist',
+            style: new TextStyle(
+                fontFamily: "Fink",
+                color: User.darkKnightMode ? textDarkTheme : Colors.black,
+                fontSize: 36.0,
+                fontWeight: FontWeight.w400)),
+      ),
       body: Stack(
         children: <Widget>[
           navBar[_selectedItemPosition],
@@ -140,52 +149,13 @@ class TodoListPageState extends State<TodoListPage> {
             controller: controller,
             scrollDirection: Axis.vertical,
             slivers: <Widget>[
-              new SliverAppBar(
-                automaticallyImplyLeading: false,
-                elevation: 5.0,
-                floating: false,
-                pinned: true,
-                centerTitle: false,
-                backgroundColor: User.darkKnightMode
-                    ? veryDarkTheme
-                    : Color.fromRGBO(78, 196, 119, 1),
-                titleSpacing: 0.0,
-                actions: <Widget>[
-                  RaisedButton(
-                    onPressed: () => Scaffold.of(context).openDrawer(),
-                    child: Icon(
-                      Icons.menu,
-                      color: User.darkKnightMode ? textDarkTheme : Colors.black,
-                    ),
-                    color: User.darkKnightMode
-                        ? veryDarkTheme
-                        : Colors.transparent,
-                    elevation: 0,
-                  )
-                ],
-                title: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Flexible(
-                    child: new Text('ACCompletionist',
-                        style: new TextStyle(
-                            fontFamily: "Fink",
-                            color: User.darkKnightMode
-                                ? textDarkTheme
-                                : Colors.black,
-                            fontSize: 36.0,
-                            fontWeight: FontWeight.w400)),
-                  ),
-                ),
-                expandedHeight: 110.0,
-                flexibleSpace: new FlexibleSpaceBar(
-                  background: new Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[new ProgressBar(widget)],
-                  ),
-                ),
-              ),
               new SliverList(
                   delegate: new SliverChildListDelegate(<Widget>[
+
+                new SizedBox(
+                  height: 90.0,
+                ),
+                new ProgressBar(widget),
                 new Container(
                     margin: new EdgeInsets.only(
                         right: 18.0, bottom: 8.0, top: 16.0),

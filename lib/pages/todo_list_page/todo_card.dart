@@ -21,9 +21,10 @@ class _TodoCardState extends State<TodoCard> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(color: User.darkKnightMode ? menuDarkTheme : acTheme,
+      decoration: BoxDecoration(
+        color: User.darkKnightMode ? menuDarkTheme : acTheme,
       ),
-          child: new Container(
+      child: new Container(
         margin: new EdgeInsets.only(left: 16.0, right: 16.0, bottom: 12.0),
         child: new Material(
             color: Colors.transparent,
@@ -50,58 +51,63 @@ class _TodoCardState extends State<TodoCard> {
                 },
                 child: new Container(
                     child: new Container(
-                            padding: new EdgeInsets.all(16.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                                color: widget.task.done ? Colors.blue : User.darkKnightMode ? secondaryDarkTheme : Colors.white,
-                                image: widget.task.done ? null
-                                    : User.darkKnightMode ? null :
-                                    new DecorationImage(
+                  padding: new EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      color: widget.task.done
+                          ? Colors.blue
+                          : User.darkKnightMode
+                              ? secondaryDarkTheme
+                              : Colors.white,
+                      image: widget.task.done
+                          ? null
+                          : User.darkKnightMode
+                              ? null
+                              : new DecorationImage(
                                   fit: BoxFit.cover,
-                                    image: new AssetImage('res/fond.png'))
-                                    
-                                    ),
-                            child: new Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                                  image: new AssetImage('res/fond.png'))),
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      /// Emoji text
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          /// Task image
+                          widget.task.hasImage
+                              ? new Flexible(child: widget.task.image)
+                              : new Container(),
+                          // Share button
+                          widget.task.done
+                              ? new InkWell(
+                                  onTap: () => Share.share('I just caught a ' +
+                                      widget.task.description +
+                                      ' on Animal Crossing: New Horizons ! #ACCompletionist'),
+                                  child: new Container(
+                                    margin: new EdgeInsets.only(right: 30.0),
+                                    child: new Icon(Icons.share,
+                                        color: User.darkKnightMode
+                                            ? textDarkTheme
+                                            : Colors.white,
+                                        size: 22.0),
+                                  ))
+                              : new Container()
+                        ],
+                      ),
+                      new Padding(padding: new EdgeInsets.only(bottom: 16.0)),
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          /// Task description
+                          new Flexible(
+                            child: Column(
                               children: <Widget>[
-                                /// Emoji text
-                                new Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                Row(
                                   children: <Widget>[
-                                    /// Task image
-                                    widget.task.hasImage
-                                        ? new Flexible(child: widget.task.image)
-                                        : new Container(),
-                                    // Share button
-                                    widget.task.done
-                                        ? new InkWell(
-                                            onTap: () => Share.share('I just caught a ' +
-                                                widget.task.description +
-                                                ' on Animal Crossing: New Horizons ! #ACCompletionist'),
-                                            child: new Container(
-                                              margin: new EdgeInsets.only(
-                                                  right: 12.0),
-                                              child: new Icon(Icons.share,
-                                                  color: User.darkKnightMode
-                                                      ? textDarkTheme
-                                                      : Colors.white,
-                                                  size: 22.0),
-                                            ))
-                                        : new Container()
-                                  ],
-                                ),
-                                new Padding(
-                                    padding: new EdgeInsets.only(bottom: 16.0)),
-                                new Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    /// Task description
-                                    new Flexible(
+                                    Flexible(
                                       child: new Text(widget.task.description,
                                           style: new TextStyle(
                                               color: widget.task.done
@@ -112,18 +118,34 @@ class _TodoCardState extends State<TodoCard> {
                                               fontSize: 20.0,
                                               fontWeight: FontWeight.w500)),
                                     ),
-                                    widget.task.hasImage
-                                        ? new FlatButton(
-                                            onPressed: () =>
-                                                showRatedDialog(context, widget.tab),
-                                            child: Icon(Icons.info))
-                                        : Container(),
                                   ],
-                                )
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    new Text(widget.task.price,
+                                        style: new TextStyle(
+                                          color: widget.task.done
+                                              ? Colors.white
+                                              : User.darkKnightMode
+                                                  ? textDarkTheme
+                                                  : Colors.black,
+                                        )),
+                                  ],
+                                ),
                               ],
                             ),
-                          )
-                        ),
+                          ),
+                          widget.task.hasImage
+                              ? new FlatButton(
+                                  onPressed: () =>
+                                      showRatedDialog(context, widget.tab),
+                                  child: Icon(Icons.info))
+                              : Container(),
+                        ],
+                      )
+                    ],
+                  ),
+                )),
               ),
             )),
       ),
@@ -146,34 +168,34 @@ class _TodoCardState extends State<TodoCard> {
             text: TextSpan(
               style: TextStyle(color: Colors.black, fontSize: 18),
               children: <TextSpan>[
-                tab == 3 ? TextSpan() :
-                TextSpan(
-                    text: 'On which season ?\n',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                tab == 3 ? TextSpan() :
-                TextSpan(text: widget.task.season),
-                tab == 3 ? TextSpan() :
-                TextSpan(
-                    text: '\n\nWhere to get it ?\n',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                tab == 3 ? TextSpan() :
-                TextSpan(text: widget.task.location),
-                tab == 3 ? TextSpan() :
-                TextSpan(
-                    text: '\n\nAt which hours ?\n',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                tab == 3 ? TextSpan() :
-                TextSpan(text: widget.task.time),
+                tab == 3
+                    ? TextSpan()
+                    : TextSpan(
+                        text: 'On which season ?\n',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                tab == 3 ? TextSpan() : TextSpan(text: widget.task.season),
+                tab == 3
+                    ? TextSpan()
+                    : TextSpan(
+                        text: '\n\nWhere to get it ?\n',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                tab == 3 ? TextSpan() : TextSpan(text: widget.task.location),
+                tab == 3
+                    ? TextSpan()
+                    : TextSpan(
+                        text: '\n\nAt which hours ?\n',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                tab == 3 ? TextSpan() : TextSpan(text: widget.task.time),
                 TextSpan(
                     text: '\n\nHow much Bells can I sell it for ?\n',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 TextSpan(text: widget.task.price),
-                tab == 3 ? TextSpan() :
-                TextSpan(
-                    text: '\n\nCan I catch it right now ?\n',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                tab == 3 ? TextSpan() :
-                calculateAvailable()
+                tab == 3
+                    ? TextSpan()
+                    : TextSpan(
+                        text: '\n\nCan I catch it right now ?\n',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                tab == 3 ? TextSpan() : calculateAvailable()
               ],
             ),
           ),
