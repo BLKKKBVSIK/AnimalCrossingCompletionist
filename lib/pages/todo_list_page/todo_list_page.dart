@@ -1,6 +1,8 @@
 import 'package:animal_crossing_completion/logic/task.dart';
 import 'package:animal_crossing_completion/misc/colors.dart';
 import 'package:animal_crossing_completion/misc/custom_icons.dart';
+import 'package:animal_crossing_completion/pages/todo_list_page/todo_card.dart';
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import '../../misc/io_manager.dart';
@@ -70,7 +72,7 @@ class TodoListPageState extends State<TodoListPage> {
       /* *************************
       *  FISHING SECTION         *
       ************************** */
-      _buildTabs(Colors.blue, TasksList.tasks, "fishs"),
+      _buildTabs(Colors.blue, TasksList.tasks, "fishes"),
       _buildTabs(Colors.green, TasksList.taskde, "bugs"),
       _buildTabs(Colors.yellow, TasksList.tasktr, "fossils"),
       /* ************************
@@ -140,6 +142,11 @@ class TodoListPageState extends State<TodoListPage> {
     );
   }
 
+  /* Future<List<Task>> search(String search) async {
+    await Future.delayed(Duration(seconds: 2));
+    return TasksList.tasks.where((item) {return item.description.contains(search);});
+  } */
+
   Widget _buildTabs(
       Color smallProgressBarColor, List<Task> tasksList, String type) {
     return Container(
@@ -151,22 +158,25 @@ class TodoListPageState extends State<TodoListPage> {
             slivers: <Widget>[
               new SliverList(
                   delegate: new SliverChildListDelegate(<Widget>[
-
-                new SizedBox(
-                  height: 90.0,
+                SizedBox(
+                  height: AppBar().preferredSize.height + 40,
                 ),
-                new ProgressBar(widget),
-                new Container(
-                    margin: new EdgeInsets.only(
-                        right: 18.0, bottom: 8.0, top: 16.0),
-                    child: new Text('${type} list',
-                        textAlign: TextAlign.end,
-                        style: new TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: User.darkKnightMode
-                              ? textDarkTheme
-                              : Colors.black,
-                        ))),
+                ProgressBar(widget),
+                /* Container(
+                  height: 280,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: SearchBar(
+                      onSearch: search,
+                      onItemFound: (Task task, int index) {
+                        return ListTile(
+                          title: Text(task.description),
+                          subtitle: Text(task.price),
+                        );
+                      },
+                    ),
+                  ),
+                ), */
                 new BuilderTaskType(this, _selectedItemPosition),
                 DecoratedBox(
                     decoration: BoxDecoration(

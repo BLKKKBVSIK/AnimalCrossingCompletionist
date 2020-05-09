@@ -426,4 +426,10 @@ static List<Task> taskde_south =
     new Task('Trilobite', true, price: '1,300 Bells Bells', image: Image.asset('res/fossils/NH-Furniture-trilobite.png', width: 50,)),
   ];
 
+
+  static List<Task> taskArt =
+  [
+
+  ];
+
 }
