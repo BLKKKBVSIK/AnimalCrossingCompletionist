@@ -2,7 +2,9 @@
 [![Made with Flutter](https://img.shields.io/badge/Made%20with-Flutter-%2345D1FE)](https://flutter.dev/)
 [![Codemagic build status](https://api.codemagic.io/apps/5eb81e53a6d15e519e709c44/5eb81e53a6d15e519e709c43/status_badge.svg)](https://codemagic.io/apps/5eb81e53a6d15e519e709c44/5eb81e53a6d15e519e709c43/latest_build)
 
-<p align="center"><a href='https://play.google.com/store/apps/details?id=dev.enzoconty.animal_crossing_completion&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' height='50%'  width='40%' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a></p>
+<p align="center"><img alt='ACCLogo' height='50%'  width='40%' src='https://user-images.githubusercontent.com/20175372/82159941-2add1300-9892-11ea-9806-6838214ecf68.png'/>
+    <a href='https://play.google.com/store/apps/details?id=dev.enzoconty.animal_crossing_completion&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+       <br> <img alt='Get it on Google Play' height='50%'  width='40%' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a></p>
 
 # Animal Crossing Completionist
 
