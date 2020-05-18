@@ -14,21 +14,27 @@ A Flutter project to complete & recolt all collectibles species of fishes, bugs 
 
 - Make better code, some part of the code are wacky and im not proud of it. 
 
-- Add all missing data.
-
-- Add all hybrid flowers species.
-
 - Search bar to filter tiles
+
+- Find a way to provide artwork information, not a switch case for ~40 elems.
 
 ## PREVIEW:
 
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/20175372/77908563-09957880-728c-11ea-8bb7-654f9851b761.png" width="33%" style="margin: 0px 0px 0px 0px;">
-    <img src="https://user-images.githubusercontent.com/20175372/77908574-0d28ff80-728c-11ea-8a57-5bbfd8d7658c.png" width="33%" style="margin: 0px 0px 0px 0px;">
-    <img src="https://user-images.githubusercontent.com/20175372/77908575-0dc19600-728c-11ea-8fb1-030ca9e74b70.png" width="33%" style="margin: 0px 0px 0px 0px;">
-    <img src="https://user-images.githubusercontent.com/20175372/77908576-0e5a2c80-728c-11ea-9c01-8201370c4a30.png" width="100%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/82259390-c8504980-995b-11ea-8d45-630b45ea7059.gif" width="100%" style="margin: 0px 0px 0px 0px;"><br>
+    <img src="https://user-images.githubusercontent.com/20175372/82262906-18caa580-9962-11ea-8f7e-388a4a800ece.png" width="33%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/82262902-17997880-9962-11ea-97f9-669a2a01a9e0.png" width="33%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/82262907-18caa580-9962-11ea-9f1b-07dc2e700924.png" width="33%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/82262912-19fbd280-9962-11ea-9cec-e9481c884290.png" width="100%" style="margin: 0px 0px 0px 0px;">
     <center>
-    <img src="https://user-images.githubusercontent.com/20175372/77908577-0ef2c300-728c-11ea-98c5-87b39cb9c24d.png" width="33%"></center>
+    <img src="https://user-images.githubusercontent.com/20175372/82262908-19633c00-9962-11ea-9662-1cb59242e578.png" width="33%">
+    <img src="https://user-images.githubusercontent.com/20175372/82262910-19633c00-9962-11ea-8d86-6f65534e792d.png" width="33%">
+    <img src="https://user-images.githubusercontent.com/20175372/77908575-0dc19600-728c-11ea-8fb1-030ca9e74b70.png" width="33%">
+    
+    
+    
+    
+    </center>
 </p>
 
 ## RELEASES:
