@@ -35,7 +35,7 @@ class _NameInputState extends State<NameInput> {
         child: Column(
           children: <Widget>[
             Flexible(
-                          child: new Stack(children: <Widget>[
+              child: new Stack(children: <Widget>[
                 new ListView(
                   children: <Widget>[
                     /// Logo
@@ -45,8 +45,10 @@ class _NameInputState extends State<NameInput> {
                             margin: new EdgeInsets.only(
                                 left: 32.0, top: 48.0, right: 16.0),
                             child: new Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
+                                new Image.asset("res/logo.png"),
                                 new Text('AC Completionist: New Horizon',
                                     style: new TextStyle(
                                         fontWeight: FontWeight.w700,
@@ -71,8 +73,10 @@ class _NameInputState extends State<NameInput> {
                         new Container(
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(30))),
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30))),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           margin: new EdgeInsets.symmetric(
                               horizontal: 66.0, vertical: 24.0),
                           child: new TextField(
@@ -81,7 +85,8 @@ class _NameInputState extends State<NameInput> {
                             decoration: new InputDecoration.collapsed(
                                 hintText: 'What\'s your name?'),
                             onChanged: verifValidityName(controller.text),
-                            style: new TextStyle(fontSize: 18.0, color: Colors.black),
+                            style: new TextStyle(
+                                fontSize: 18.0, color: Colors.black),
                           ),
                         ),
                         Padding(
@@ -99,17 +104,21 @@ class _NameInputState extends State<NameInput> {
                                         child: new RaisedButton(
                                           onPressed: () =>
                                               controller.text.length >= 3 &&
-                                                      controller.text.length <= 10
+                                                      controller.text.length <=
+                                                          10
                                                   ? saveName(controller.text)
                                                   : null,
-                                          color:
-                                              validName ? Colors.black : Colors.grey,
+                                          color: validName
+                                              ? Colors.black
+                                              : Colors.grey,
                                           child: new ListTile(
                                             title: new Text('Next',
                                                 style: new TextStyle(
                                                     color: Colors.white,
-                                                    fontWeight: FontWeight.w600)),
-                                            trailing: new Icon(Icons.arrow_forward,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            trailing: new Icon(
+                                                Icons.arrow_forward,
                                                 color: Colors.white),
                                           ),
                                         ))),

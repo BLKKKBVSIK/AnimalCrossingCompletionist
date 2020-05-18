@@ -49,7 +49,7 @@ class _ProgressBarState extends State<ProgressBar>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>
                 [
-                  new Text((User.completedFish.length + User.completedBugs.length + User.completedFossils.length).toString(), style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w700)),
+                  new Text((User.completedFish.length + User.completedBugs.length + User.completedFossils.length + User.completedArt.length).toString(), style: new TextStyle(color: Colors.blue, fontWeight: FontWeight.w700)),
                   new Text('/', style: TextStyle(color: User.darkKnightMode ? textDarkTheme : Colors.black),),
                   new Text(calculateListsLenght(), style: new TextStyle(fontWeight: FontWeight.w500, color: User.darkKnightMode ? textDarkTheme : Colors.black)),
                                   ],
@@ -72,8 +72,8 @@ class _ProgressBarState extends State<ProgressBar>
                                 ),
                                 new SizedBox.fromSize
                                 (
-                                  size: new Size(((User.completedFish.length + User.completedBugs.length + User.completedFossils.length + 1) / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length)) * MediaQuery.of(context).size.width - 
-                                  (((User.completedTasks.length / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length)) * MediaQuery.of(context).size.width) * 0.7), 10.0),
+                                  size: new Size(((User.completedFish.length + User.completedBugs.length + User.completedFossils.length + User.completedArt.length+ 1) / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length + TasksList.taskArt.length)) * MediaQuery.of(context).size.width - 
+                                  (((User.completedTasks.length / (TasksList.taskde.length + TasksList.tasks.length + TasksList.tasktr.length + TasksList.taskArt.length)) * MediaQuery.of(context).size.width) * 0.7), 10.0),
                                   child: new Material
                                   (
                                     color: Colors.blue,
@@ -87,7 +87,7 @@ class _ProgressBarState extends State<ProgressBar>
                     }
                   
                     String calculateListsLenght() {
-                      final res = TasksList.tasks.length + TasksList.taskde.length + TasksList.tasktr.length;
+                      final res = TasksList.tasks.length + TasksList.taskde.length + TasksList.tasktr.length + TasksList.taskArt.length;
                       return res.toString();
                     }
 }

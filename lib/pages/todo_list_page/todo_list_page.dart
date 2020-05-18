@@ -75,6 +75,7 @@ class TodoListPageState extends State<TodoListPage> {
       _buildTabs(Colors.blue, TasksList.tasks, "fishes"),
       _buildTabs(Colors.green, TasksList.taskde, "bugs"),
       _buildTabs(Colors.yellow, TasksList.tasktr, "fossils"),
+      _buildTabs(Colors.grey, TasksList.taskArt, "Art"),
       /* ************************
     *       Bug section
     *
@@ -117,7 +118,8 @@ class TodoListPageState extends State<TodoListPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Custom.fossil),
-          )
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.aspect_ratio)),
         ],
       ),
       appBar: AppBar(

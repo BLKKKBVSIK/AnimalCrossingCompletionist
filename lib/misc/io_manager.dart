@@ -37,6 +37,13 @@ class IOManager
     return new File('$path/completedfossils_tasks.txt');
   }
 
+  static Future<File> get _getSaveFileArts async
+  {
+    final path = await _localPath;
+    return new File('$path/completedarts_tasks.txt');
+  }
+
+
 
 
   static Future<void> deleteAllSave() async {
@@ -47,6 +54,8 @@ class IOManager
     file = await _getSaveFileBug;
     file.delete();
     file = await _getSaveFileFossil;
+    file.delete();
+    file = await _getSaveFileArts;
     file.delete();
   }
 
@@ -122,6 +131,22 @@ class IOManager
         }
       }
       User.completedFossils = completedTasks;
+
+      file = await _getSaveFileArts;
+      contents = await file.readAsLines();
+      completedTasks = new List();
+
+      for (int i = 0; i < contents.length; i++)
+      {
+        for (int j = 0; j < TasksList.taskArt.length; j++)
+        {
+          if(contents[i] == TasksList.taskArt[j].description)
+          {
+            completedTasks.add(TasksList.taskArt[j]);
+          }
+        }
+      }
+      User.completedArt = completedTasks;
     }
     catch (e)
     {
@@ -136,6 +161,7 @@ class IOManager
     File filefish = await _getSaveFileFish;
     File filebug = await _getSaveFileBug;
     File filefossil = await _getSaveFileFossil;
+    File filearts = await _getSaveFileArts;
 
     String tasksToWrite = '';
 
@@ -181,5 +207,17 @@ class IOManager
     }
 
     filefossil.writeAsString(tasksToWrite, mode: FileMode.writeOnly);
+
+
+    tasks = User.completedArt;
+    tasksToWrite = '';
+
+    for (int i = 0; i < tasks.length; i++)
+    {
+      tasksToWrite += tasks[i].description;
+      if(i != tasks.length - 1) tasksToWrite += '\n';
+    }
+
+    filearts.writeAsString(tasksToWrite, mode: FileMode.writeOnly);
   }
 }

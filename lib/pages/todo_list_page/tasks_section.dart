@@ -48,6 +48,9 @@ class _BuilderTaskTypeState extends State<BuilderTaskType> {
         case 2: {
           return TasksList.tasktr.map<Widget>((Task task) => new TodoCard(checkIfDone(task, User.completedFossils), widget.state, 3)).toList();
         } break;
+        case 3: {
+          return TasksList.taskArt.map<Widget>((Task task) => new TodoCard(checkIfDone(task, User.completedFossils), widget.state, 4)).toList();
+        } break;
         case 4: {
           if (User.hemisphere) {
           return TasksList.tasks.where((task) {

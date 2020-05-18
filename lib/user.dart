@@ -7,6 +7,7 @@ class User {
   static List<Task> completedFish = new List();
   static List<Task> completedBugs = new List();
   static List<Task> completedFossils = new List();
+  static List<Task> completedArt = new List();
   static bool darkKnightMode;
   static bool hemisphere = true;
 
@@ -33,6 +34,11 @@ class User {
       for (int i = 0; i < completedFossils.length; i++) {
         if (completedFossils[i].description == taskDesc)
           completedFossils.removeAt(i);
+      }
+    } else if (tab == 4) {
+      for (int i = 0; i < completedArt.length; i++) {
+        if (completedArt[i].description == taskDesc)
+          completedArt.removeAt(i);
       }
     }
   }

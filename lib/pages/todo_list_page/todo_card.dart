@@ -39,8 +39,10 @@ class _TodoCardState extends State<TodoCard> {
                       User.completedFish.add(widget.task);
                     } else if (widget.tab == 2) {
                       User.completedBugs.add(widget.task);
-                    } else {
+                    } else if (widget.tab == 3) {
                       User.completedFossils.add(widget.task);
+                    } else if (widget.tab == 4) {
+                      User.completedArt.add(widget.task);
                     }
                     User.completedTasks.add(widget.task);
                   } else
@@ -120,26 +122,30 @@ class _TodoCardState extends State<TodoCard> {
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    new Text(widget.task.price,
-                                        style: new TextStyle(
-                                          color: widget.task.done
-                                              ? Colors.white
-                                              : User.darkKnightMode
-                                                  ? textDarkTheme
-                                                  : Colors.black,
-                                        )),
-                                  ],
-                                ),
+                                widget.tab != 4
+                                    ? Row(
+                                        children: <Widget>[
+                                          new Text(widget.task.price,
+                                              style: new TextStyle(
+                                                color: widget.task.done
+                                                    ? Colors.white
+                                                    : User.darkKnightMode
+                                                        ? textDarkTheme
+                                                        : Colors.black,
+                                              )),
+                                        ],
+                                      )
+                                    : Container(),
                               ],
                             ),
                           ),
                           widget.task.hasImage
-                              ? new FlatButton(
-                                  onPressed: () =>
-                                      showRatedDialog(context, widget.tab),
-                                  child: Icon(Icons.info))
+                              ? widget.tab == 4
+                                  ? Container()
+                                  : new FlatButton(
+                                      onPressed: () =>
+                                          showRatedDialog(context, widget.tab),
+                                      child: Icon(Icons.info))
                               : Container(),
                         ],
                       )
@@ -148,6 +154,31 @@ class _TodoCardState extends State<TodoCard> {
                 )),
               ),
             )),
+      ),
+    );
+  }
+
+  dynamic showArtsDiff(BuildContext buildContext, int tab) {
+    showDialog(
+      context: buildContext,
+      child: new AlertDialog(
+        titlePadding: new EdgeInsets.all(0.0),
+        title: new Container(
+          color: User.darkKnightMode ? menuDarkTheme : Colors.white,
+          padding: new EdgeInsets.symmetric(vertical: 32.0),
+          child: new Center(
+            child: widget.task.image,
+          ),
+        ),
+        content: Text("hello"),
+        actions: <Widget>[
+          new FlatButton(
+            onPressed: () {
+              Navigator.of(buildContext).pop();
+            },
+            child: new Text('CLOSE'),
+          ),
+        ],
       ),
     );
   }

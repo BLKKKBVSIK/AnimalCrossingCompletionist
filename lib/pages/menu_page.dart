@@ -78,12 +78,12 @@ class _MenuPageState extends State<MenuPage> {
                                     new Text(
                                         (User.completedFish.length +
                                                     User.completedBugs.length +
-                                                    User.completedFossils.length)
+                                                    User.completedFossils.length + User.completedArt.length)
                                                 .toString() +
                                             ' completed tasks out of ' +
                                             (TasksList.tasks.length +
                                                     TasksList.taskde.length +
-                                                    TasksList.tasktr.length)
+                                                    TasksList.tasktr.length + TasksList.taskArt.length)
                                                 .toString(),
                                         style: new TextStyle(
                                             color: User.darkKnightMode
@@ -106,6 +106,12 @@ class _MenuPageState extends State<MenuPage> {
                                             TasksList.tasktr.length.toString(),
                                         style:
                                             new TextStyle(color: Colors.yellow)),
+                                    new Text(
+                                        User.completedArt.length.toString() +
+                                            ' completed arts out of ' +
+                                            TasksList.taskArt.length.toString(),
+                                        style:
+                                            new TextStyle(color: Colors.lightBlue)),
                                   ],
                                 ),
                               ],
