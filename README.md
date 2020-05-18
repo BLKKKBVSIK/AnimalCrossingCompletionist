@@ -26,15 +26,9 @@ A Flutter project to complete & recolt all collectibles species of fishes, bugs 
     <img src="https://user-images.githubusercontent.com/20175372/82262902-17997880-9962-11ea-97f9-669a2a01a9e0.png" width="33%" style="margin: 0px 0px 0px 0px;">
     <img src="https://user-images.githubusercontent.com/20175372/82262907-18caa580-9962-11ea-9f1b-07dc2e700924.png" width="33%" style="margin: 0px 0px 0px 0px;">
     <img src="https://user-images.githubusercontent.com/20175372/82262912-19fbd280-9962-11ea-9cec-e9481c884290.png" width="100%" style="margin: 0px 0px 0px 0px;">
-    <center>
-    <img src="https://user-images.githubusercontent.com/20175372/82262908-19633c00-9962-11ea-9662-1cb59242e578.png" width="33%">
-    <img src="https://user-images.githubusercontent.com/20175372/82262910-19633c00-9962-11ea-8d86-6f65534e792d.png" width="33%">
-    <img src="https://user-images.githubusercontent.com/20175372/77908575-0dc19600-728c-11ea-8fb1-030ca9e74b70.png" width="33%">
-    
-    
-    
-    
-    </center>
+    <img src="https://user-images.githubusercontent.com/20175372/82262908-19633c00-9962-11ea-9662-1cb59242e578.png" width="33%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/82262910-19633c00-9962-11ea-8d86-6f65534e792d.png" width="33%" style="margin: 0px 0px 0px 0px;">
+    <img src="https://user-images.githubusercontent.com/20175372/77908575-0dc19600-728c-11ea-8fb1-030ca9e74b70.png" width="33%" style="margin: 0px 0px 0px 0px;">
 </p>
 
 ## RELEASES:
